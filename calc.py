@@ -8,9 +8,10 @@
 import math as m
 
 tokens = (
-    'NAME','NUMBER',
+    'NAME','NUMBER','DECIMAL',
     'PLUS','MINUS','TIMES','DIVIDE','EXP','EQUALS',
-    'LPAREN','RPAREN',
+    'LPAREN','RPAREN','DOT','COMMA',
+    'LOG',
     'COS','SEN','TAN','SEC','CSC','COT',
     'COSH','SENH','TANH','SECH','CSCH','COTH',
     )
@@ -25,6 +26,9 @@ t_EXP     = r'\^'
 t_EQUALS  = r'='
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
+t_DOT     = r'\.'
+t_COMMA   = r','
+t_LOG     = r'log|LOG'
 ##Reserved words######
 ##Trigonometry
 
@@ -45,6 +49,7 @@ t_COTH    = r'coth|COTH'
 
 ############################
 
+log = 'log|LOG'
 coseno = 'cos|COS'
 seno = 'sen|SEN'
 tangente = 'tan|TAN'
@@ -61,7 +66,7 @@ cotangente_hyper = 'coth|COTH'
 palabras_trigonometria = coseno+'|'+seno+'|'+tangente+'|'+secante+'|'+cosecante+'|'+cotangente
 palabras_hyperbolicas = coseno_hyper+'|'+seno_hyper+'|'+tangente_hyper+'|'+secante_hyper+'|'+cosecante_hyper+'|'+cotangente_hyper
 
-palabras_reservadas = palabras_trigonometria+'|'+palabras_hyperbolicas
+palabras_reservadas = palabras_trigonometria+'|'+palabras_hyperbolicas+'|'+log
 
 caracteres_aceptados = '[a-zA-Z_][a-zA-Z0-9_]'
 ###########################
@@ -73,6 +78,15 @@ def t_NUMBER(t):
         t.value = int(t.value)
     except ValueError:
         print("Integer value too large %d", t.value)
+        t.value = 0
+    return t
+
+def t_DECIMAL(t):
+    r'\d+\.\d+'
+    try:
+        t.value = float(t.value)
+    except ValueError:
+        print("Float value too large %d", t.value)
         t.value = 0
     return t
 
@@ -98,6 +112,7 @@ precedence = (
     ('left','TIMES','DIVIDE'),
     ('left','EXP'),
     ('left','COS','SEN','TAN','SEC','CSC','COT','COSH','SENH','TANH','SECH','CSCH','COTH'),
+    ('left','DOT'),
     ('right','UMINUS'),
     )
 
@@ -111,6 +126,19 @@ def p_statement_assign(t):
 def p_statement_expr(t):
     'statement : expression'
     print(t[1])
+
+def p_statement_decimal(t):
+    'expression : expression DOT expression'
+    result = ""+str(t[1])+"."+str(t[3])
+    t[0] = float(result)
+
+def p_statement_logarithm(t):
+    'expression : LOG expression COMMA expression'
+    t[0] = m.log(t[2],t[4])
+
+def p_statement_natural_logarithm(t):
+    'expression : LOG expression'
+    t[0] = m.log(t[2])
 
 def p_expression_binop(t):
     '''expression : expression PLUS expression
@@ -166,6 +194,10 @@ def p_expression_group(t):
 
 def p_expression_number(t):
     'expression : NUMBER'
+    t[0] = t[1]
+
+def p_expression_decimal(t):
+    'expression : DECIMAL'
     t[0] = t[1]
 
 def p_expression_name(t):

@@ -1,0 +1,2030 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> NAME EQUALS expression
+Rule 2     statement -> expression
+Rule 3     expression -> expression DOT expression
+Rule 4     expression -> LOG expression COMMA expression
+Rule 5     expression -> LOG expression
+Rule 6     expression -> expression PLUS expression
+Rule 7     expression -> expression MINUS expression
+Rule 8     expression -> expression TIMES expression
+Rule 9     expression -> expression DIVIDE expression
+Rule 10    expression -> expression EXP expression
+Rule 11    expression -> COS expression
+Rule 12    expression -> SEN expression
+Rule 13    expression -> TAN expression
+Rule 14    expression -> SEC expression
+Rule 15    expression -> CSC expression
+Rule 16    expression -> COT expression
+Rule 17    expression -> COSH expression
+Rule 18    expression -> SENH expression
+Rule 19    expression -> TANH expression
+Rule 20    expression -> SECH expression
+Rule 21    expression -> CSCH expression
+Rule 22    expression -> COTH expression
+Rule 23    expression -> MINUS expression
+Rule 24    expression -> LPAREN expression RPAREN
+Rule 25    expression -> NUMBER
+Rule 26    expression -> DECIMAL
+Rule 27    expression -> NAME
+
+Terminals, with rules where they appear
+
+COMMA                : 4
+COS                  : 11
+COSH                 : 17
+COT                  : 16
+COTH                 : 22
+CSC                  : 15
+CSCH                 : 21
+DECIMAL              : 26
+DIVIDE               : 9
+DOT                  : 3
+EQUALS               : 1
+EXP                  : 10
+LOG                  : 4 5
+LPAREN               : 24
+MINUS                : 7 23
+NAME                 : 1 27
+NUMBER               : 25
+PLUS                 : 6
+RPAREN               : 24
+SEC                  : 14
+SECH                 : 20
+SEN                  : 12
+SENH                 : 18
+TAN                  : 13
+TANH                 : 19
+TIMES                : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 3 3 4 4 5 6 6 7 7 8 8 9 9 10 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . NAME EQUALS expression
+    (2) statement -> . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    NAME            shift and go to state 2
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> NAME . EQUALS expression
+    (27) expression -> NAME .
+
+    EQUALS          shift and go to state 21
+    DOT             reduce using rule 27 (expression -> NAME .)
+    PLUS            reduce using rule 27 (expression -> NAME .)
+    MINUS           reduce using rule 27 (expression -> NAME .)
+    TIMES           reduce using rule 27 (expression -> NAME .)
+    DIVIDE          reduce using rule 27 (expression -> NAME .)
+    EXP             reduce using rule 27 (expression -> NAME .)
+    $end            reduce using rule 27 (expression -> NAME .)
+
+
+state 3
+
+    (2) statement -> expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    $end            reduce using rule 2 (statement -> expression .)
+    DOT             shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 4
+
+    (4) expression -> LOG . expression COMMA expression
+    (5) expression -> LOG . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 28
+
+state 5
+
+    (23) expression -> MINUS . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 30
+
+state 6
+
+    (11) expression -> COS . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 31
+
+state 7
+
+    (12) expression -> SEN . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 32
+
+state 8
+
+    (13) expression -> TAN . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 33
+
+state 9
+
+    (14) expression -> SEC . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 34
+
+state 10
+
+    (15) expression -> CSC . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 35
+
+state 11
+
+    (16) expression -> COT . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 36
+
+state 12
+
+    (17) expression -> COSH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 37
+
+state 13
+
+    (18) expression -> SENH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 38
+
+state 14
+
+    (19) expression -> TANH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 39
+
+state 15
+
+    (20) expression -> SECH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 40
+
+state 16
+
+    (21) expression -> CSCH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 41
+
+state 17
+
+    (22) expression -> COTH . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 42
+
+state 18
+
+    (24) expression -> LPAREN . expression RPAREN
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 43
+
+state 19
+
+    (25) expression -> NUMBER .
+
+    DOT             reduce using rule 25 (expression -> NUMBER .)
+    PLUS            reduce using rule 25 (expression -> NUMBER .)
+    MINUS           reduce using rule 25 (expression -> NUMBER .)
+    TIMES           reduce using rule 25 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 25 (expression -> NUMBER .)
+    EXP             reduce using rule 25 (expression -> NUMBER .)
+    $end            reduce using rule 25 (expression -> NUMBER .)
+    COMMA           reduce using rule 25 (expression -> NUMBER .)
+    RPAREN          reduce using rule 25 (expression -> NUMBER .)
+
+
+state 20
+
+    (26) expression -> DECIMAL .
+
+    DOT             reduce using rule 26 (expression -> DECIMAL .)
+    PLUS            reduce using rule 26 (expression -> DECIMAL .)
+    MINUS           reduce using rule 26 (expression -> DECIMAL .)
+    TIMES           reduce using rule 26 (expression -> DECIMAL .)
+    DIVIDE          reduce using rule 26 (expression -> DECIMAL .)
+    EXP             reduce using rule 26 (expression -> DECIMAL .)
+    $end            reduce using rule 26 (expression -> DECIMAL .)
+    COMMA           reduce using rule 26 (expression -> DECIMAL .)
+    RPAREN          reduce using rule 26 (expression -> DECIMAL .)
+
+
+state 21
+
+    (1) statement -> NAME EQUALS . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 44
+
+state 22
+
+    (3) expression -> expression DOT . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 45
+
+state 23
+
+    (6) expression -> expression PLUS . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 46
+
+state 24
+
+    (7) expression -> expression MINUS . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 47
+
+state 25
+
+    (8) expression -> expression TIMES . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 48
+
+state 26
+
+    (9) expression -> expression DIVIDE . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 49
+
+state 27
+
+    (10) expression -> expression EXP . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 50
+
+state 28
+
+    (4) expression -> LOG expression . COMMA expression
+    (5) expression -> LOG expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for COMMA resolved as shift
+  ! shift/reduce conflict for DOT resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    COMMA           shift and go to state 51
+    $end            reduce using rule 5 (expression -> LOG expression .)
+    RPAREN          reduce using rule 5 (expression -> LOG expression .)
+    DOT             shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! PLUS            [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! MINUS           [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! TIMES           [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! DIVIDE          [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! EXP             [ reduce using rule 5 (expression -> LOG expression .) ]
+  ! COMMA           [ reduce using rule 5 (expression -> LOG expression .) ]
+
+
+state 29
+
+    (27) expression -> NAME .
+
+    COMMA           reduce using rule 27 (expression -> NAME .)
+    DOT             reduce using rule 27 (expression -> NAME .)
+    PLUS            reduce using rule 27 (expression -> NAME .)
+    MINUS           reduce using rule 27 (expression -> NAME .)
+    TIMES           reduce using rule 27 (expression -> NAME .)
+    DIVIDE          reduce using rule 27 (expression -> NAME .)
+    EXP             reduce using rule 27 (expression -> NAME .)
+    $end            reduce using rule 27 (expression -> NAME .)
+    RPAREN          reduce using rule 27 (expression -> NAME .)
+
+
+state 30
+
+    (23) expression -> MINUS expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    DOT             reduce using rule 23 (expression -> MINUS expression .)
+    PLUS            reduce using rule 23 (expression -> MINUS expression .)
+    MINUS           reduce using rule 23 (expression -> MINUS expression .)
+    TIMES           reduce using rule 23 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 23 (expression -> MINUS expression .)
+    EXP             reduce using rule 23 (expression -> MINUS expression .)
+    $end            reduce using rule 23 (expression -> MINUS expression .)
+    COMMA           reduce using rule 23 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 23 (expression -> MINUS expression .)
+
+  ! DOT             [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 31
+
+    (11) expression -> COS expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 11 (expression -> COS expression .)
+    MINUS           reduce using rule 11 (expression -> COS expression .)
+    TIMES           reduce using rule 11 (expression -> COS expression .)
+    DIVIDE          reduce using rule 11 (expression -> COS expression .)
+    EXP             reduce using rule 11 (expression -> COS expression .)
+    $end            reduce using rule 11 (expression -> COS expression .)
+    COMMA           reduce using rule 11 (expression -> COS expression .)
+    RPAREN          reduce using rule 11 (expression -> COS expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 11 (expression -> COS expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 32
+
+    (12) expression -> SEN expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 12 (expression -> SEN expression .)
+    MINUS           reduce using rule 12 (expression -> SEN expression .)
+    TIMES           reduce using rule 12 (expression -> SEN expression .)
+    DIVIDE          reduce using rule 12 (expression -> SEN expression .)
+    EXP             reduce using rule 12 (expression -> SEN expression .)
+    $end            reduce using rule 12 (expression -> SEN expression .)
+    COMMA           reduce using rule 12 (expression -> SEN expression .)
+    RPAREN          reduce using rule 12 (expression -> SEN expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 12 (expression -> SEN expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 33
+
+    (13) expression -> TAN expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 13 (expression -> TAN expression .)
+    MINUS           reduce using rule 13 (expression -> TAN expression .)
+    TIMES           reduce using rule 13 (expression -> TAN expression .)
+    DIVIDE          reduce using rule 13 (expression -> TAN expression .)
+    EXP             reduce using rule 13 (expression -> TAN expression .)
+    $end            reduce using rule 13 (expression -> TAN expression .)
+    COMMA           reduce using rule 13 (expression -> TAN expression .)
+    RPAREN          reduce using rule 13 (expression -> TAN expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 13 (expression -> TAN expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 34
+
+    (14) expression -> SEC expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 14 (expression -> SEC expression .)
+    MINUS           reduce using rule 14 (expression -> SEC expression .)
+    TIMES           reduce using rule 14 (expression -> SEC expression .)
+    DIVIDE          reduce using rule 14 (expression -> SEC expression .)
+    EXP             reduce using rule 14 (expression -> SEC expression .)
+    $end            reduce using rule 14 (expression -> SEC expression .)
+    COMMA           reduce using rule 14 (expression -> SEC expression .)
+    RPAREN          reduce using rule 14 (expression -> SEC expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 14 (expression -> SEC expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 35
+
+    (15) expression -> CSC expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 15 (expression -> CSC expression .)
+    MINUS           reduce using rule 15 (expression -> CSC expression .)
+    TIMES           reduce using rule 15 (expression -> CSC expression .)
+    DIVIDE          reduce using rule 15 (expression -> CSC expression .)
+    EXP             reduce using rule 15 (expression -> CSC expression .)
+    $end            reduce using rule 15 (expression -> CSC expression .)
+    COMMA           reduce using rule 15 (expression -> CSC expression .)
+    RPAREN          reduce using rule 15 (expression -> CSC expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 15 (expression -> CSC expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 36
+
+    (16) expression -> COT expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 16 (expression -> COT expression .)
+    MINUS           reduce using rule 16 (expression -> COT expression .)
+    TIMES           reduce using rule 16 (expression -> COT expression .)
+    DIVIDE          reduce using rule 16 (expression -> COT expression .)
+    EXP             reduce using rule 16 (expression -> COT expression .)
+    $end            reduce using rule 16 (expression -> COT expression .)
+    COMMA           reduce using rule 16 (expression -> COT expression .)
+    RPAREN          reduce using rule 16 (expression -> COT expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 16 (expression -> COT expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 37
+
+    (17) expression -> COSH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 17 (expression -> COSH expression .)
+    MINUS           reduce using rule 17 (expression -> COSH expression .)
+    TIMES           reduce using rule 17 (expression -> COSH expression .)
+    DIVIDE          reduce using rule 17 (expression -> COSH expression .)
+    EXP             reduce using rule 17 (expression -> COSH expression .)
+    $end            reduce using rule 17 (expression -> COSH expression .)
+    COMMA           reduce using rule 17 (expression -> COSH expression .)
+    RPAREN          reduce using rule 17 (expression -> COSH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 17 (expression -> COSH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 38
+
+    (18) expression -> SENH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 18 (expression -> SENH expression .)
+    MINUS           reduce using rule 18 (expression -> SENH expression .)
+    TIMES           reduce using rule 18 (expression -> SENH expression .)
+    DIVIDE          reduce using rule 18 (expression -> SENH expression .)
+    EXP             reduce using rule 18 (expression -> SENH expression .)
+    $end            reduce using rule 18 (expression -> SENH expression .)
+    COMMA           reduce using rule 18 (expression -> SENH expression .)
+    RPAREN          reduce using rule 18 (expression -> SENH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 18 (expression -> SENH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 39
+
+    (19) expression -> TANH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 19 (expression -> TANH expression .)
+    MINUS           reduce using rule 19 (expression -> TANH expression .)
+    TIMES           reduce using rule 19 (expression -> TANH expression .)
+    DIVIDE          reduce using rule 19 (expression -> TANH expression .)
+    EXP             reduce using rule 19 (expression -> TANH expression .)
+    $end            reduce using rule 19 (expression -> TANH expression .)
+    COMMA           reduce using rule 19 (expression -> TANH expression .)
+    RPAREN          reduce using rule 19 (expression -> TANH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 19 (expression -> TANH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 40
+
+    (20) expression -> SECH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 20 (expression -> SECH expression .)
+    MINUS           reduce using rule 20 (expression -> SECH expression .)
+    TIMES           reduce using rule 20 (expression -> SECH expression .)
+    DIVIDE          reduce using rule 20 (expression -> SECH expression .)
+    EXP             reduce using rule 20 (expression -> SECH expression .)
+    $end            reduce using rule 20 (expression -> SECH expression .)
+    COMMA           reduce using rule 20 (expression -> SECH expression .)
+    RPAREN          reduce using rule 20 (expression -> SECH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 20 (expression -> SECH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 41
+
+    (21) expression -> CSCH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 21 (expression -> CSCH expression .)
+    MINUS           reduce using rule 21 (expression -> CSCH expression .)
+    TIMES           reduce using rule 21 (expression -> CSCH expression .)
+    DIVIDE          reduce using rule 21 (expression -> CSCH expression .)
+    EXP             reduce using rule 21 (expression -> CSCH expression .)
+    $end            reduce using rule 21 (expression -> CSCH expression .)
+    COMMA           reduce using rule 21 (expression -> CSCH expression .)
+    RPAREN          reduce using rule 21 (expression -> CSCH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 21 (expression -> CSCH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 42
+
+    (22) expression -> COTH expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 22 (expression -> COTH expression .)
+    MINUS           reduce using rule 22 (expression -> COTH expression .)
+    TIMES           reduce using rule 22 (expression -> COTH expression .)
+    DIVIDE          reduce using rule 22 (expression -> COTH expression .)
+    EXP             reduce using rule 22 (expression -> COTH expression .)
+    $end            reduce using rule 22 (expression -> COTH expression .)
+    COMMA           reduce using rule 22 (expression -> COTH expression .)
+    RPAREN          reduce using rule 22 (expression -> COTH expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 22 (expression -> COTH expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 43
+
+    (24) expression -> LPAREN expression . RPAREN
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    RPAREN          shift and go to state 52
+    DOT             shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 44
+
+    (1) statement -> NAME EQUALS expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    $end            reduce using rule 1 (statement -> NAME EQUALS expression .)
+    DOT             shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+
+state 45
+
+    (3) expression -> expression DOT expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    DOT             reduce using rule 3 (expression -> expression DOT expression .)
+    PLUS            reduce using rule 3 (expression -> expression DOT expression .)
+    MINUS           reduce using rule 3 (expression -> expression DOT expression .)
+    TIMES           reduce using rule 3 (expression -> expression DOT expression .)
+    DIVIDE          reduce using rule 3 (expression -> expression DOT expression .)
+    EXP             reduce using rule 3 (expression -> expression DOT expression .)
+    $end            reduce using rule 3 (expression -> expression DOT expression .)
+    COMMA           reduce using rule 3 (expression -> expression DOT expression .)
+    RPAREN          reduce using rule 3 (expression -> expression DOT expression .)
+
+  ! DOT             [ shift and go to state 22 ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 46
+
+    (6) expression -> expression PLUS expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 6 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 6 (expression -> expression PLUS expression .)
+    $end            reduce using rule 6 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 6 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 6 (expression -> expression PLUS expression .)
+    DOT             shift and go to state 22
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 6 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 6 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 6 (expression -> expression PLUS expression .) ]
+  ! EXP             [ reduce using rule 6 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+
+
+state 47
+
+    (7) expression -> expression MINUS expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 7 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 7 (expression -> expression MINUS expression .)
+    $end            reduce using rule 7 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 7 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 7 (expression -> expression MINUS expression .)
+    DOT             shift and go to state 22
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 7 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 7 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 7 (expression -> expression MINUS expression .) ]
+  ! EXP             [ reduce using rule 7 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+
+
+state 48
+
+    (8) expression -> expression TIMES expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 8 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 8 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 8 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 8 (expression -> expression TIMES expression .)
+    $end            reduce using rule 8 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 8 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 8 (expression -> expression TIMES expression .)
+    DOT             shift and go to state 22
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 8 (expression -> expression TIMES expression .) ]
+  ! EXP             [ reduce using rule 8 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+
+
+state 49
+
+    (9) expression -> expression DIVIDE expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 9 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 9 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 9 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 9 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 9 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 9 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 9 (expression -> expression DIVIDE expression .)
+    DOT             shift and go to state 22
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 9 (expression -> expression DIVIDE expression .) ]
+  ! EXP             [ reduce using rule 9 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+
+
+state 50
+
+    (10) expression -> expression EXP expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+    PLUS            reduce using rule 10 (expression -> expression EXP expression .)
+    MINUS           reduce using rule 10 (expression -> expression EXP expression .)
+    TIMES           reduce using rule 10 (expression -> expression EXP expression .)
+    DIVIDE          reduce using rule 10 (expression -> expression EXP expression .)
+    EXP             reduce using rule 10 (expression -> expression EXP expression .)
+    $end            reduce using rule 10 (expression -> expression EXP expression .)
+    COMMA           reduce using rule 10 (expression -> expression EXP expression .)
+    RPAREN          reduce using rule 10 (expression -> expression EXP expression .)
+    DOT             shift and go to state 22
+
+  ! DOT             [ reduce using rule 10 (expression -> expression EXP expression .) ]
+  ! PLUS            [ shift and go to state 23 ]
+  ! MINUS           [ shift and go to state 24 ]
+  ! TIMES           [ shift and go to state 25 ]
+  ! DIVIDE          [ shift and go to state 26 ]
+  ! EXP             [ shift and go to state 27 ]
+
+
+state 51
+
+    (4) expression -> LOG expression COMMA . expression
+    (3) expression -> . expression DOT expression
+    (4) expression -> . LOG expression COMMA expression
+    (5) expression -> . LOG expression
+    (6) expression -> . expression PLUS expression
+    (7) expression -> . expression MINUS expression
+    (8) expression -> . expression TIMES expression
+    (9) expression -> . expression DIVIDE expression
+    (10) expression -> . expression EXP expression
+    (11) expression -> . COS expression
+    (12) expression -> . SEN expression
+    (13) expression -> . TAN expression
+    (14) expression -> . SEC expression
+    (15) expression -> . CSC expression
+    (16) expression -> . COT expression
+    (17) expression -> . COSH expression
+    (18) expression -> . SENH expression
+    (19) expression -> . TANH expression
+    (20) expression -> . SECH expression
+    (21) expression -> . CSCH expression
+    (22) expression -> . COTH expression
+    (23) expression -> . MINUS expression
+    (24) expression -> . LPAREN expression RPAREN
+    (25) expression -> . NUMBER
+    (26) expression -> . DECIMAL
+    (27) expression -> . NAME
+
+    LOG             shift and go to state 4
+    COS             shift and go to state 6
+    SEN             shift and go to state 7
+    TAN             shift and go to state 8
+    SEC             shift and go to state 9
+    CSC             shift and go to state 10
+    COT             shift and go to state 11
+    COSH            shift and go to state 12
+    SENH            shift and go to state 13
+    TANH            shift and go to state 14
+    SECH            shift and go to state 15
+    CSCH            shift and go to state 16
+    COTH            shift and go to state 17
+    MINUS           shift and go to state 5
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+    DECIMAL         shift and go to state 20
+    NAME            shift and go to state 29
+
+    expression                     shift and go to state 53
+
+state 52
+
+    (24) expression -> LPAREN expression RPAREN .
+
+    DOT             reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    EXP             reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+
+
+state 53
+
+    (4) expression -> LOG expression COMMA expression .
+    (3) expression -> expression . DOT expression
+    (6) expression -> expression . PLUS expression
+    (7) expression -> expression . MINUS expression
+    (8) expression -> expression . TIMES expression
+    (9) expression -> expression . DIVIDE expression
+    (10) expression -> expression . EXP expression
+
+  ! shift/reduce conflict for DOT resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for EXP resolved as shift
+    $end            reduce using rule 4 (expression -> LOG expression COMMA expression .)
+    COMMA           reduce using rule 4 (expression -> LOG expression COMMA expression .)
+    RPAREN          reduce using rule 4 (expression -> LOG expression COMMA expression .)
+    DOT             shift and go to state 22
+    PLUS            shift and go to state 23
+    MINUS           shift and go to state 24
+    TIMES           shift and go to state 25
+    DIVIDE          shift and go to state 26
+    EXP             shift and go to state 27
+
+  ! DOT             [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+  ! PLUS            [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+  ! MINUS           [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+  ! TIMES           [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+  ! DIVIDE          [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+  ! EXP             [ reduce using rule 4 (expression -> LOG expression COMMA expression .) ]
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for COMMA in state 28 resolved as shift
+WARNING: shift/reduce conflict for DOT in state 28 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 28 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 28 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 28 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 28 resolved as shift
+WARNING: shift/reduce conflict for DOT in state 53 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 53 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 53 resolved as shift
+WARNING: shift/reduce conflict for EXP in state 53 resolved as shift
