@@ -11,9 +11,11 @@ tokens = (
     'NAME','NUMBER','DECIMAL',
     'PLUS','MINUS','TIMES','DIVIDE','EXP','EQUALS',
     'LPAREN','RPAREN','DOT','COMMA',
-    'LOG',
+    'LOG','LN','SQRT','MOD',
     'COS','SEN','TAN','SEC','CSC','COT',
+    'ACOS','ASEN','ATAN',
     'COSH','SENH','TANH','SECH','CSCH','COTH',
+    'ACOSH','ASENH','ATANH'
     )
 
 # Tokens
@@ -29,6 +31,9 @@ t_RPAREN  = r'\)'
 t_DOT     = r'\.'
 t_COMMA   = r','
 t_LOG     = r'log|LOG'
+t_LN      = r'ln|LN'
+t_SQRT    = r'sqrt|SQRT'
+t_MOD     = r'%'
 ##Reserved words######
 ##Trigonometry
 
@@ -38,6 +43,9 @@ t_TAN     = r'tan|TAN'
 t_SEC     = r'sec|SEC'
 t_CSC     = r'csc|CSC'
 t_COT     = r'cot|COT'
+t_ACOS     = r'acos|ACOS'
+t_ASEN     = r'asen|ASEN'
+t_ATAN     = r'atan|ATAN'
 
 ##Hyperbólicas
 t_COSH    = r'cosh|COSH'
@@ -46,10 +54,17 @@ t_TANH    = r'tanh|TANH'
 t_SECH    = r'sech|SECH'
 t_CSCH    = r'csch|CSCH'
 t_COTH    = r'coth|COTH'
+t_ACOSH    = r'acosh|ACOSH'
+t_ASENH    = r'asenh|ASENH'
+t_ATANH    = r'atanh|ATANH'
 
 ############################
 
+ln = 'ln|LN'
 log = 'log|LOG'
+sqrt = 'sqrt|SQRT'
+mod = '%'
+
 coseno = 'cos|COS'
 seno = 'sen|SEN'
 tangente = 'tan|TAN'
@@ -63,10 +78,23 @@ secante_hyper = 'sech|SECH'
 cosecante_hyper = 'csch|CSCH'
 cotangente_hyper = 'coth|COTH'
 
+arccoseno = 'acos|ACOS'
+arcseno = 'asen|ASEN'
+arctangente = 'atan|ATAN'
+
+arccoseno_hyper = 'acosh|ACOSH'
+arcseno_hyper = 'asenh|ASENH'
+arctangente_hyper = 'atanh|ATANH'
+
+
 palabras_trigonometria = coseno+'|'+seno+'|'+tangente+'|'+secante+'|'+cosecante+'|'+cotangente
 palabras_hyperbolicas = coseno_hyper+'|'+seno_hyper+'|'+tangente_hyper+'|'+secante_hyper+'|'+cosecante_hyper+'|'+cotangente_hyper
 
-palabras_reservadas = palabras_trigonometria+'|'+palabras_hyperbolicas+'|'+log
+palabras_inv_trigonometria = arccoseno+'|'+arcseno+'|'+arctangente
+palabras_inv_hyperbolicas = arccoseno_hyper+'|'+arcseno_hyper+'|'+arctangente_hyper
+palabras_funciones = log+'|'+ln+'|'+sqrt+'|'+mod
+
+palabras_reservadas = palabras_trigonometria+'|'+palabras_hyperbolicas+'|'+palabras_inv_trigonometria+'|'+palabras_inv_hyperbolicas+'|'+palabras_funciones
 
 caracteres_aceptados = '[a-zA-Z_][a-zA-Z0-9_]'
 ###########################
@@ -109,9 +137,11 @@ lexer = lex.lex()
 
 precedence = (
     ('left','PLUS','MINUS'),
-    ('left','TIMES','DIVIDE'),
-    ('left','EXP'),
-    ('left','COS','SEN','TAN','SEC','CSC','COT','COSH','SENH','TANH','SECH','CSCH','COTH'),
+    ('left','TIMES','DIVIDE','MOD'),
+    ('left','EXP','SQRT'),
+    ('left','COS','SEN','TAN','SEC','CSC','COT','COSH','SENH','TANH','SECH','CSCH','COTH','ACOS','ASEN','ATAN','ACOSH','ASENH','ATANH'),
+    ('left','LOG','LN'),
+    ('left','COMMA'),
     ('left','DOT'),
     ('right','UMINUS'),
     )
@@ -137,8 +167,16 @@ def p_statement_logarithm(t):
     t[0] = m.log(t[2],t[4])
 
 def p_statement_natural_logarithm(t):
-    'expression : LOG expression'
+    'expression : LN expression'
     t[0] = m.log(t[2])
+
+def p_statement_square_root(t):
+    'expression : SQRT expression'
+    t[0] = m.sqrt(t[2])
+
+def p_statement_module(t):
+    'expression : expression MOD expression'
+    t[0] = t[1] % t[3]
 
 def p_expression_binop(t):
     '''expression : expression PLUS expression
@@ -167,6 +205,12 @@ def p_expression_trig(t):
                   | SECH expression
                   | CSCH expression
                   | COTH expression
+                  | ACOS expression
+                  | ASEN expression
+                  | ATAN expression
+                  | ACOSH expression
+                  | ASENH expression
+                  | ATANH expression
                   '''
     if t[1] == 'cos' or t[1] == 'COS' : t[0] = m.cos(t[2])
     elif t[1] == 'sen' or t[1] == 'SEN' : t[0] = m.sin(t[2])
@@ -181,6 +225,14 @@ def p_expression_trig(t):
     elif t[1] == 'sech' or t[1] == 'SECH' : t[0] = 1/m.cosh(t[2])
     elif t[1] == 'csch' or t[1] == 'CSCH' : t[0] = 1/m.sinh(t[2])
     elif t[1] == 'coth' or t[1] == 'COTH' : t[0] = 1/m.tanh(t[2])
+    ##Inversas
+    elif t[1] == 'acos' or t[1] == 'ACOS' : t[0] = m.acos(t[2])
+    elif t[1] == 'asen' or t[1] == 'ASEN' : t[0] = m.asin(t[2])
+    elif t[1] == 'atan' or t[1] == 'ATAN' : t[0] = m.atan(t[2])
+    ##Inversas hiperbolicas
+    elif t[1] == 'acosh' or t[1] == 'ACOSH' : t[0] = m.acosh(t[2])
+    elif t[1] == 'asenh' or t[1] == 'ASENH' : t[0] = m.asinh(t[2])
+    elif t[1] == 'atanh' or t[1] == 'ATANH' : t[0] = m.atanh(t[2])
 
 ##################################################################
 
