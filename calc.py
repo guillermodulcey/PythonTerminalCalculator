@@ -230,9 +230,24 @@ def p_expression_trig(t):
     elif t[1] == 'asen' or t[1] == 'ASEN' : t[0] = m.asin(t[2])
     elif t[1] == 'atan' or t[1] == 'ATAN' : t[0] = m.atan(t[2])
     ##Inversas hiperbolicas
-    elif t[1] == 'acosh' or t[1] == 'ACOSH' : t[0] = m.acosh(t[2])
-    elif t[1] == 'asenh' or t[1] == 'ASENH' : t[0] = m.asinh(t[2])
-    elif t[1] == 'atanh' or t[1] == 'ATANH' : t[0] = m.atanh(t[2])
+    elif t[1] == 'acosh' or t[1] == 'ACOSH': 
+        try:
+            t[0] = m.acosh(t[2])
+        except:
+            print("Math error: acosh(%s)" %t[2])
+            t[0] = 0
+    elif t[1] == 'asenh' or t[1] == 'ASENH': 
+        try:
+            t[0] = m.asinh(t[2])
+        except:
+            print("Math error: asenh(%s)" %t[2])
+            t[0] = 0
+    elif t[1] == 'atanh' or t[1] == 'ATANH': 
+        try:
+            t[0] = m.atanh(t[2])
+        except:
+            print("Math error: atanh(%s)" %t[2])
+            t[0] = 0
 
 ##################################################################
 
