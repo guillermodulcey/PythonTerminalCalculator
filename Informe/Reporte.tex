@@ -1,0 +1,64 @@
+\documentclass[10pt]{report}
+\usepackage{graphicx}
+\addtolength{\textwidth}{4cm}
+\addtolength{\hoffset}{-2cm}
+\topmargin -0.30cm
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.25\textwidth]{LogoCinvesHeader.png}\par\vspace{2cm}
+	{\scshape\LARGE Centro de Investigación y de Estudios Avanzados del IPN\par}
+	\vspace{2cm}	
+	{\huge\bfseries Proyecto 1. Calculadora Python \par}
+	\vspace{1.5cm}
+	{\scshape\Large Tecnologías de la programación\par}
+	\vspace{2cm}
+	{\Large Miembros del equipo: \\Hernán Guillermo Dulcey Morán \\Karla Jacquelin Guzmán Sánchez\par}
+	\vfill
+
+	{\large 29 de Octubre de 2019 \par}
+\end{titlepage}
+
+\section*{Introducción}
+Se requiere implementar una calculadora basada en expresiones regulares en el lenguaje Python.
+
+\section*{Requerimientos}
+La calculadora es polinomial, y debe ser capaz de resolver ecuaciones polinomiales como:
+
+insertar aquí ecuación
+
+\section*{Manual}
+La calculadora es capaz de procesar cualquier operación mencionada en los requerimientos siempre y cuando lleve la sintaxis adecuada. La calculadora es capaz de resolver expresiones sin la necesidad de parentesis pero se recomienda hacer uso de estos para tener un mejor orden de la expresión.
+
+La calculadora puede asignar valores a variables de la forma: x=1. En este caso se le ha asignado el valor de 1 a la variable x, por lo tanto en las siguientes expresiones que contengan la variable x, se reconocerá este valor y será reemplazado para resolver la ecuación. En caso de que el valor no haya sido asignado, la ecuación no puede resolverse.
+
+El nombre de la variable siempre debe iniciar por una letra, pero apartir de ahí puede tomar cualquier valor excepto valores que hagan que el nombre de la variable coincida con una palabra reservada. La calculadora tiene las siguientes palabras reservadas, las cuales no pueden ser usadas para asignación de variables:
+\begin{enumerate}
+    \item ln : logaritmo natural
+    \item log : logaritmo con base
+    \item sqrt : raíz cuadrada
+    \item sen,cos,tan,cot,csc,sec : funciones trigonometricas
+    \item asen,acos,atan : funciones trigonometricas inversas
+    \item senh,cosh,tanh,coth,csch,sech : funciones hiperbólicas
+    \item asenh,acosh,atanh : funciones hiperbólicas inversas.
+\end{enumerate}
+Así como tambien existen caracteres especiales:
+\begin{enumerate}
+    \item * : operador de multiplicación
+    \item / : operador de división
+    \item \% : operador de módulo
+    \item + : operador de suma
+    \item - : operador de resta
+    \item \^ : operador de potencia
+    \item . : separador de decimales
+    \item , : separador de base de logaritmo con base
+    \item = : operador de asignación
+\end{enumerate}
+Cabe resaltar que la calculadora maneja el orden PEMDAS para las operaciones (Parentesis, exponente, multiplicación, división, adición y substracción). Las operaciones de logaritmo y trigonometricas son consideradas de orden aún mayor a las mencionadas anteriormente.
+
+\section*{Conclusión}
+Las expresiones regulares nos ayudan a entender la sintaxis de una expresión y gracias a eso podemos añadir lógica al resultado de dicha expresión. Así como se analizaron sentencias simples, con nuevos procedimientos se podrían realizar el analisis y obtener el resultado de operaciones más complejas. 
+
+\end{document}
