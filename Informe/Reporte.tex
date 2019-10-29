@@ -1,5 +1,6 @@
 \documentclass[10pt]{report}
 \usepackage{graphicx}
+\usepackage{verbatim}
 \addtolength{\textwidth}{4cm}
 \addtolength{\hoffset}{-2cm}
 \topmargin -0.30cm
@@ -11,7 +12,7 @@
 	\includegraphics[width=0.25\textwidth]{LogoCinvesHeader.png}\par\vspace{2cm}
 	{\scshape\LARGE Centro de Investigación y de Estudios Avanzados del IPN\par}
 	\vspace{2cm}	
-	{\huge\bfseries Proyecto 1. Calculadora Python \par}
+	{\huge\bfseries Proyecto 1. Evaluador de expresiones polinomiales \par}
 	\vspace{1.5cm}
 	{\scshape\Large Tecnologías de la programación\par}
 	\vspace{2cm}
@@ -21,16 +22,66 @@
 	{\large 29 de Octubre de 2019 \par}
 \end{titlepage}
 
-\section*{Introducción}
-Se requiere implementar una calculadora basada en expresiones regulares en el lenguaje Python.
+\section*{1. Introducción}
+Se requiere implementar una calculadora que sea capaz de evaluar expresiones polinomiales. El proyecto basa su funcionamiento en expresiones regulares implementadas en el lenguaje de programación Python.
 
-\section*{Requerimientos}
-La calculadora es polinomial, y debe ser capaz de resolver ecuaciones polinomiales como:
+\section*{2. Requerimientos}
+El evaluador de expresiones polinomiales debe ser capaz de evaluar, reconocer y ejecutar expresiones matemáticas que incluyan o no alguna función implementada en el evaluador. A continuación se enlistan las funciones que estarán disponibles para el usuario.
 
-insertar aquí ecuación
+\begin{itemize}
+\item Suma
+\item Resta
+\item Multiplicación
+\item División
+\item Funciones trigonométricas
+\begin{comment}
+\begin{itemize}
+\item Seno
+\item Coseno
+\item Tangente
+\item Secante
+\item Cosecante
+\item Cotangente
+\end{itemize}
+\end{comment}
+\item Funciones hiperbólicas
+\begin{comment}
+\begin{itemize}
+\item Seno hiperbólico
+\item Coseno hiperbólico
+\item Tangente hiperbólico
+\item Secante hiperbólico
+\item Cosecante hiperbólico
+\item Cotangente hiperbólico
+\end{itemize}
+\end{comment}
+\item Funciones trigonométricas inversas
+\begin{comment}
+\begin{itemize}
+\item $Seno^{-1}$
+\item $Coseno^{-1}$
+\item $Tangente^{-1}$
+\end{itemize}
+\end{comment}
+\item Logaritmo natural
+\item Logaritmo base 2 
+\item Logaritmo base 10
+\item Raíz cuadrada
+\item Módulo
+\end{itemize}
+
+De la misma forma, el evaluador deberá aceptar expresiones de polinomios de la forma:
+
+\begin{center}
+$a_m x^n + a_{m-1} x^{n-1}+ a_{m-2} x^{n-2}+ a_{m-3} x^{n-3} + ... + a_1 x + a_0$
+\end{center}
+
+Donde $a_i$, $x$ y $m$ son valores en ${\rm I\!R}$ que corresponen a los coeficientes, variables independientes y exponentes respectivamente. La expresión polinomial también deberá aceptar más de una variable independiente.
+
+La calculadora será capaz de procesar cualquier operación mencionada en los requerimientos siempre y cuando lleve la sintaxis adecuada.
 
 \section*{Manual}
-La calculadora es capaz de procesar cualquier operación mencionada en los requerimientos siempre y cuando lleve la sintaxis adecuada. La calculadora es capaz de resolver expresiones sin la necesidad de parentesis pero se recomienda hacer uso de estos para tener un mejor orden de la expresión.
+La calculadora es capaz de resolver expresiones sin la necesidad de parentesis pero se recomienda hacer uso de estos para tener un mejor orden de la expresión.
 
 La calculadora puede asignar valores a variables de la forma: x=1. En este caso se le ha asignado el valor de 1 a la variable x, por lo tanto en las siguientes expresiones que contengan la variable x, se reconocerá este valor y será reemplazado para resolver la ecuación. En caso de que el valor no haya sido asignado, la ecuación no puede resolverse.
 
