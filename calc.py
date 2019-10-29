@@ -151,7 +151,10 @@ names = { }
 
 def p_statement_assign(t):
     'statement : NAME EQUALS expression'
-    names[t[1]] = t[3]
+    try:
+        names[t[1]] = t[3]
+    except:
+        print("Syntax error: Assignment")
 
 def p_statement_expr(t):
     'statement : expression'
@@ -159,8 +162,12 @@ def p_statement_expr(t):
 
 def p_statement_decimal(t):
     'expression : expression DOT expression'
-    result = ""+str(t[1])+"."+str(t[3])
-    t[0] = float(result)
+    try:
+        result = ""+str(t[1])+"."+str(t[3])
+        t[0] = float(result)
+    except:
+        print("Syntax error: Decimal")
+    
 
 def p_statement_logarithm(t):
     'expression : LOG expression COMMA expression'
@@ -172,7 +179,11 @@ def p_statement_natural_logarithm(t):
 
 def p_statement_square_root(t):
     'expression : SQRT expression'
-    t[0] = m.sqrt(t[2])
+    try:
+        t[0] = m.sqrt(t[2])
+    except:
+        print("Syntax Error: Square root ")
+    
 
 def p_statement_module(t):
     'expression : expression MOD expression'
@@ -212,42 +223,46 @@ def p_expression_trig(t):
                   | ASENH expression
                   | ATANH expression
                   '''
-    if t[1] == 'cos' or t[1] == 'COS' : t[0] = m.cos(t[2])
-    elif t[1] == 'sen' or t[1] == 'SEN' : t[0] = m.sin(t[2])
-    elif t[1] == 'tan' or t[1] == 'TAN' : t[0] = m.tan(t[2])
-    elif t[1] == 'sec' or t[1] == 'SEC' : t[0] = 1/m.cos(t[2])
-    elif t[1] == 'csc' or t[1] == 'CSC' : t[0] = 1/m.sin(t[2])
-    elif t[1] == 'cot' or t[1] == 'COT' : t[0] = 1/m.tan(t[2])
-    ##Hiperbólicas
-    elif t[1] == 'cosh' or t[1] == 'COSH' : t[0] = m.cosh(t[2])
-    elif t[1] == 'senh' or t[1] == 'SENH' : t[0] = m.sinh(t[2])
-    elif t[1] == 'tanh' or t[1] == 'TANH' : t[0] = m.tanh(t[2])
-    elif t[1] == 'sech' or t[1] == 'SECH' : t[0] = 1/m.cosh(t[2])
-    elif t[1] == 'csch' or t[1] == 'CSCH' : t[0] = 1/m.sinh(t[2])
-    elif t[1] == 'coth' or t[1] == 'COTH' : t[0] = 1/m.tanh(t[2])
-    ##Inversas
-    elif t[1] == 'acos' or t[1] == 'ACOS' : t[0] = m.acos(t[2])
-    elif t[1] == 'asen' or t[1] == 'ASEN' : t[0] = m.asin(t[2])
-    elif t[1] == 'atan' or t[1] == 'ATAN' : t[0] = m.atan(t[2])
-    ##Inversas hiperbolicas
-    elif t[1] == 'acosh' or t[1] == 'ACOSH': 
-        try:
-            t[0] = m.acosh(t[2])
-        except:
-            print("Math error: acosh(%s)" %t[2])
-            t[0] = 0
-    elif t[1] == 'asenh' or t[1] == 'ASENH': 
-        try:
-            t[0] = m.asinh(t[2])
-        except:
-            print("Math error: asenh(%s)" %t[2])
-            t[0] = 0
-    elif t[1] == 'atanh' or t[1] == 'ATANH': 
-        try:
-            t[0] = m.atanh(t[2])
-        except:
-            print("Math error: atanh(%s)" %t[2])
-            t[0] = 0
+    try:
+        if t[1] == 'cos' or t[1] == 'COS' : t[0] = m.cos(t[2])
+        elif t[1] == 'sen' or t[1] == 'SEN' : t[0] = m.sin(t[2])
+        elif t[1] == 'tan' or t[1] == 'TAN' : t[0] = m.tan(t[2])
+        elif t[1] == 'sec' or t[1] == 'SEC' : t[0] = 1/m.cos(t[2])
+        elif t[1] == 'csc' or t[1] == 'CSC' : t[0] = 1/m.sin(t[2])
+        elif t[1] == 'cot' or t[1] == 'COT' : t[0] = 1/m.tan(t[2])
+        ##Hiperbólicas
+        elif t[1] == 'cosh' or t[1] == 'COSH' : t[0] = m.cosh(t[2])
+        elif t[1] == 'senh' or t[1] == 'SENH' : t[0] = m.sinh(t[2])
+        elif t[1] == 'tanh' or t[1] == 'TANH' : t[0] = m.tanh(t[2])
+        elif t[1] == 'sech' or t[1] == 'SECH' : t[0] = 1/m.cosh(t[2])
+        elif t[1] == 'csch' or t[1] == 'CSCH' : t[0] = 1/m.sinh(t[2])
+        elif t[1] == 'coth' or t[1] == 'COTH' : t[0] = 1/m.tanh(t[2])
+        ##Inversas
+        elif t[1] == 'acos' or t[1] == 'ACOS' : t[0] = m.acos(t[2])
+        elif t[1] == 'asen' or t[1] == 'ASEN' : t[0] = m.asin(t[2])
+        elif t[1] == 'atan' or t[1] == 'ATAN' : t[0] = m.atan(t[2])
+        ##Inversas hiperbolicas
+        elif t[1] == 'acosh' or t[1] == 'ACOSH': 
+            try:
+                t[0] = m.acosh(t[2])
+            except:
+                print("Math error: acosh(%s)" %t[2])
+                t[0] = 0
+        elif t[1] == 'asenh' or t[1] == 'ASENH': 
+            try:
+                t[0] = m.asinh(t[2])
+            except:
+                print("Math error: asenh(%s)" %t[2])
+                t[0] = 0
+        elif t[1] == 'atanh' or t[1] == 'ATANH': 
+            try:
+                t[0] = m.atanh(t[2])
+            except:
+                print("Math error: atanh(%s)" %t[2])
+                t[0] = 0
+    except:
+        print("Syntax error: Trigonometric function")
+    
 
 ##################################################################
 
@@ -258,6 +273,14 @@ def p_expression_uminus(t):
 def p_expression_group(t):
     'expression : LPAREN expression RPAREN'
     t[0] = t[2]
+
+def p_expression_group_error_r(t):
+    'expression : LPAREN expression'
+    print("Missing right parenthesis")
+
+def p_expression_group_error_l(t):
+    'expression : expression RPAREN'
+    print("Missing left parenthesis")
 
 def p_expression_number(t):
     'expression : NUMBER'
