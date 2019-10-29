@@ -80,7 +80,7 @@ Donde $a_i$, $x$ y $m$ son valores en ${\rm I\!R}$ que corresponen a los coefici
 
 La calculadora será capaz de procesar cualquier operación mencionada en los requerimientos siempre y cuando lleve la sintaxis adecuada.
 
-\section*{Manual}
+\section*{3. Manual}
 La calculadora es capaz de resolver expresiones sin la necesidad de parentesis pero se recomienda hacer uso de estos para tener un mejor orden de la expresión.
 
 La calculadora puede asignar valores a variables de la forma: x=1. En este caso se le ha asignado el valor de 1 a la variable x, por lo tanto en las siguientes expresiones que contengan la variable x, se reconocerá este valor y será reemplazado para resolver la ecuación. En caso de que el valor no haya sido asignado, la ecuación no puede resolverse.
@@ -102,14 +102,114 @@ Así como tambien existen caracteres especiales:
     \item \% : operador de módulo
     \item + : operador de suma
     \item - : operador de resta
-    \item \^ : operador de potencia
-    \item . : separador de decimales
-    \item , : separador de base de logaritmo con base
+    \item \textbf{\^} : operador de potencia
+    \item \textbf{.} : separador de decimales
+    \item \textbf{,} : separador de base de logaritmo con base
     \item = : operador de asignación
 \end{enumerate}
 Cabe resaltar que la calculadora maneja el orden PEMDAS para las operaciones (Parentesis, exponente, multiplicación, división, adición y substracción). Las operaciones de logaritmo y trigonometricas son consideradas de orden aún mayor a las mencionadas anteriormente.
 
-\section*{Conclusión}
+A continuación se describe la sintaxis que debe seguir el usuario para utilizar las funciones de manera correcta.
+
+\begin{itemize}
+\item Número entero: 3 
+
+\item Número decimal: 2\textbf{.}3
+
+\item Suma: 2 \textbf{+} 3
+
+Respuesta esperada: 5
+
+\item Resta: 2 \textbf{-} 3
+
+Respuesta esperada: -1
+
+\item Multiplicación 2 \textbf{*} 3
+
+Respuesta esperada: 6
+
+\item División: 9 \textbf{/} 3
+
+Respuesta esperada: 3
+
+\item Módulo: 10 \textbf{\%} 3
+
+Respuesta esperada: 1
+
+\item Potencia: 2 \textbf{\^} 2
+
+Respuesta esperada: 4
+
+\item Asignación: x \textbf{=} 1
+
+Nota: Se hace distinción entre mayúsculas y minúsculas. \textbf{x} NO es equivalente a \textbf{X}.
+
+\item Agrupación
+
+\textbf{(}$2+2$\textbf{)}$*4$
+
+Respuesta esperada: 16
+
+\item Raíz cuadrada: \textbf{sqrt} 4 ó \textbf{SQRT} 4
+
+Respuesta esperada: 2
+
+\item Logaritmos:
+
+\begin{itemize}
+\item Logaritmo natural: \textbf{ln} 1 ó \textbf{LN} 1
+
+Respuesta esperada: 0
+
+\item Logartimo con base: \textbf{log} número\textbf{,} base ó \textbf{LOG} 5\textbf{,}10
+
+Ejemplo: Logaritmo base 10 de 5. \textbf{log} 5\textbf{,}10
+
+Respuesta esperada: 0.6989700043360187
+\end{itemize}
+
+\item Funciones trigonométricas
+
+\begin{itemize}
+\item Seno: \textbf{sen} 90 ó \textbf{SEN} 90
+\item Coseno: \textbf{cos} 90 ó \textbf{COS} 90
+\item Tangente: \textbf{tan} 90 ó \textbf{TAN} 90
+\item Secante: \textbf{sec} 90 ó \textbf{SEC} 90
+\item Cosecante: \textbf{csc} 90 ó \textbf{CSC} 90
+\item Cotangente: \textbf{cot} 90 ó \textbf{COT} 90
+\end{itemize}
+
+\item Funciones trigonómetricas inversas
+\begin{itemize}
+\item Arcoseno: \textbf{asen} 90 ó \textbf{ASEN} 90
+\item Arcocoseno: \textbf{acos} 90 ó \textbf{ACOS} 90
+\item Arco tangente: \textbf{atan} 90 ó \textbf{ATAN} 90
+\end{itemize}
+
+\item Funciones hiperbólicas
+
+\begin{itemize}
+\item Seno hiperbólico: \textbf{senh} 0.90 ó \textbf{SENH} 0.90
+\item Coseno hiperbólico: \textbf{cosh} 0.90 ó \textbf{COSH} 0.90
+\item Tangente hiperbólico: \textbf{tanh} 0.90 ó \textbf{TANH} 0.90
+\item Secante hiperbólico: \textbf{sech} 0.90 ó \textbf{SECH} 0.90
+\item Cosecante hiperbólico: \textbf{csch} 0.90 ó \textbf{CSCH} 0.90
+\item Cotangente hiperbólico: \textbf{coth} 0.90 ó \textbf{COTH} 0.90
+\end{itemize}
+
+\item Funciones hiperbólicas inversas
+
+\begin{itemize}
+\item Arcoseno hiperbólico: \textbf{asenh} 0.90 ó \textbf{ASENH} 0.90
+\item Arcocoseno hiperbólico: \textbf{acosh} 0.90 ó \textbf{ACOSH} 0.90
+\item Arcotangente hiperbólico: \textbf{atanh} 0.90 ó \textbf{ATANH} 0.90
+\end{itemize}
+
+\end{itemize}
+
+Nota: Todas las operaciones o funciones mencionadas pueden hacer uso de paréntesis para agrupar sus componentes si el usuario lo desea. Ejemplo: \textbf{ln} \textbf{(}5,10\textbf{)} es equivalente a \textbf{ln} 5\textbf{,}10 .
+
+\section*{4. Conclusión}
 Las expresiones regulares nos ayudan a entender la sintaxis de una expresión y gracias a eso podemos añadir lógica al resultado de dicha expresión. Así como se analizaron sentencias simples, con nuevos procedimientos se podrían realizar el analisis y obtener el resultado de operaciones más complejas. 
 
 \end{document}
